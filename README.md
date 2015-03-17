@@ -1,9 +1,10 @@
 # CryptoDev3l
 Java PBKDF2 Encryption Utility - PBKDF2WithHmacSHA1
+
 *Java hashing implementation of pbkdf2 for secure storage of passwords.*
 
 
-### Some high level checkpoints of the project:
+### Project Highlights:
 * Native Java API
   * Encryption algorithm: PBKDF2WithHmacSHA1
 * Iterations configurable through properties file
