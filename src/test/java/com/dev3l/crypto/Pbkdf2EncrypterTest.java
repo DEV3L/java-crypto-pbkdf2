@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Pbkdf2EncrypterTest {
-	private static final int TEST_COUNT_SIZE = 100;
+	private static final int TEST_COUNT_SIZE = 10;
 	private final String password = "super_secret";
 
 	@Test

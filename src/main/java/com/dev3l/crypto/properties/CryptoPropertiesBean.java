@@ -10,9 +10,6 @@ public class CryptoPropertiesBean {
 
 	private Map<String, String> propertiesMap;
 
-	public CryptoPropertiesBean() {
-	}
-
 	/**
 	 * @return the pbkdf2Algorithm
 	 */
@@ -81,5 +78,15 @@ public class CryptoPropertiesBean {
 	 */
 	public final void setPropertiesMap(final Map<String, String> propertiesMap) {
 		this.propertiesMap = propertiesMap;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CryptoPropertiesBean [pbkdf2Algorithm=" + pbkdf2Algorithm + ", pbkdf2Iterations=" + pbkdf2Iterations + ", pbkdf2SaltByteSize=" + pbkdf2SaltByteSize
+				+ ", pbkdf2HashByteSize=" + pbkdf2HashByteSize + "]";
 	}
 }

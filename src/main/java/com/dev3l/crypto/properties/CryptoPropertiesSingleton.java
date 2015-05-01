@@ -29,6 +29,7 @@ public class CryptoPropertiesSingleton {
 			propertiesConfiguration.setReloadingStrategy(new FileChangedReloadingStrategy());
 			fileModified = propertiesConfiguration.getFile().lastModified();
 			cryptoPropertiesBean = CryptoPropertiesFactory.createCryptoPropertiesBeanFromPropertiesFile(propertiesConfiguration);
+			logger.info("Crpto properties loaded:\n" + cryptoPropertiesBean);
 		}
 
 		return cryptoPropertiesBean;
