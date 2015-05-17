@@ -1,5 +1,6 @@
 package com.dev3l.crypto;
 
+import java.io.FileNotFoundException;
 import java.security.SecureRandom;
 
 import org.apache.commons.codec.binary.Hex;
@@ -11,7 +12,7 @@ public class RandomSaltGenerator {
 	private RandomSaltGenerator() {
 	}
 
-	public static String createSalt() {
+	public static String createSalt() throws FileNotFoundException {
 		final CryptoPropertiesBean cryptoPropertiesBean = CryptoPropertiesSingleton.getCryptoPropertiesBeanInstance();
 
 		final byte[] saltBytes = new byte[cryptoPropertiesBean.getPbkdf2SaltByteSize()];

@@ -1,5 +1,6 @@
 package com.dev3l.crypto;
 
+import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -25,8 +26,9 @@ public class Pbkdf2Encrypter {
 	 * @param password
 	 * @param salt Hex encoded bytes
 	 * @return
+	 * @throws FileNotFoundException 
 	 */
-	public static String encrypt(final String password, final String salt) {
+	public static String encrypt(final String password, final String salt) throws FileNotFoundException {
 		if (StringUtils.isEmpty(password) || StringUtils.isEmpty(salt)) {
 			return null;
 		}
@@ -42,7 +44,7 @@ public class Pbkdf2Encrypter {
 		return encryptedHash;
 	}
 
-	private static byte[] encrypt(final char[] password, final byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	private static byte[] encrypt(final char[] password, final byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException, FileNotFoundException {
 		final CryptoPropertiesBean cryptoPropertiesBean = CryptoPropertiesSingleton.getCryptoPropertiesBeanInstance();
 
 		final PBEKeySpec pBEKeySpec = new PBEKeySpec(password, salt, cryptoPropertiesBean.getPbkdf2Iterations(), cryptoPropertiesBean.getPbkdf2HashByteSize() * 8);

@@ -1,9 +1,13 @@
-package com.dev3l.crypto.properties;
+package com.dev3l.crypto.properties.test;
 
 import org.apache.commons.configuration.ConversionException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.dev3l.crypto.properties.CryptoPropertiesBean;
+import com.dev3l.crypto.properties.CryptoPropertiesEnum;
+import com.dev3l.crypto.properties.CryptoPropertiesFactory;
 
 public class CryptoPropertiesFactoryTest {
 	private static final String pbkdf2Algorithm = "not_null_1";
