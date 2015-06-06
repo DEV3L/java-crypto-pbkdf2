@@ -26,7 +26,7 @@ public class Pbkdf2Encrypter {
 	 * @param password
 	 * @param salt Hex encoded bytes
 	 * @return
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException
 	 */
 	public static String encrypt(final String password, final String salt) throws FileNotFoundException {
 		if (StringUtils.isEmpty(password) || StringUtils.isEmpty(salt)) {
@@ -44,10 +44,12 @@ public class Pbkdf2Encrypter {
 		return encryptedHash;
 	}
 
-	private static byte[] encrypt(final char[] password, final byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException, FileNotFoundException {
+	private static byte[] encrypt(final char[] password, final byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException,
+			FileNotFoundException {
 		final CryptoPropertiesBean cryptoPropertiesBean = CryptoPropertiesSingleton.getCryptoPropertiesBeanInstance();
 
-		final PBEKeySpec pBEKeySpec = new PBEKeySpec(password, salt, cryptoPropertiesBean.getPbkdf2Iterations(), cryptoPropertiesBean.getPbkdf2HashByteSize() * 8);
+		final PBEKeySpec pBEKeySpec = new PBEKeySpec(password, salt, cryptoPropertiesBean.getPbkdf2Iterations(),
+				cryptoPropertiesBean.getPbkdf2HashByteSize() * 8);
 		final SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance(cryptoPropertiesBean.getPbkdf2Algorithm());
 
 		return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();

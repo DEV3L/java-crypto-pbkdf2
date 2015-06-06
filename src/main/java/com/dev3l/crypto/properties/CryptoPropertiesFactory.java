@@ -24,18 +24,23 @@ public class CryptoPropertiesFactory {
 	 * @param propertiesConfiguration
 	 * @param cryptoPropertiesBean
 	 */
-	private static final void setPbkdf2PropertiesOnCryptoPropertiesBean(final PropertiesConfiguration propertiesConfiguration, final CryptoPropertiesBean cryptoPropertiesBean) {
+	private static final void setPbkdf2PropertiesOnCryptoPropertiesBean(final PropertiesConfiguration propertiesConfiguration,
+			final CryptoPropertiesBean cryptoPropertiesBean) {
 		cryptoPropertiesBean.setPbkdf2Algorithm(propertiesConfiguration.getString(CryptoPropertiesEnum.PBKDF2_ALGORITHM.getLiteral()));
-		cryptoPropertiesBean.setPbkdf2HashByteSize(propertiesConfiguration.getInteger(CryptoPropertiesEnum.PBKDF2_HASH_BYTE_SIZE.getLiteral(), null));
-		cryptoPropertiesBean.setPbkdf2Iterations(propertiesConfiguration.getInteger(CryptoPropertiesEnum.PBKDF2_ITERATIONS.getLiteral(), null));
-		cryptoPropertiesBean.setPbkdf2SaltByteSize(propertiesConfiguration.getInteger(CryptoPropertiesEnum.PBKDF2_SALT_BYTE_SIZE.getLiteral(), null));
+		cryptoPropertiesBean.setPbkdf2HashByteSize(propertiesConfiguration.getInteger(
+				CryptoPropertiesEnum.PBKDF2_HASH_BYTE_SIZE.getLiteral(), null));
+		cryptoPropertiesBean.setPbkdf2Iterations(propertiesConfiguration.getInteger(CryptoPropertiesEnum.PBKDF2_ITERATIONS.getLiteral(),
+				null));
+		cryptoPropertiesBean.setPbkdf2SaltByteSize(propertiesConfiguration.getInteger(
+				CryptoPropertiesEnum.PBKDF2_SALT_BYTE_SIZE.getLiteral(), null));
 	}
 
 	/**
 	 * @param propertiesConfiguration
 	 * @param cryptoPropertiesBean
 	 */
-	private static final void setPropertiesMapOnCryptoPropertiesBean(final PropertiesConfiguration propertiesConfiguration, final CryptoPropertiesBean cryptoPropertiesBean) {
+	private static final void setPropertiesMapOnCryptoPropertiesBean(final PropertiesConfiguration propertiesConfiguration,
+			final CryptoPropertiesBean cryptoPropertiesBean) {
 		final Iterator<String> propertiesKeys = propertiesConfiguration.getKeys();
 		final Map<String, String> propertiesMap = new HashMap<String, String>();
 

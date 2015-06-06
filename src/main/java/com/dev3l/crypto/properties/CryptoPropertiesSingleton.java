@@ -21,7 +21,8 @@ public class CryptoPropertiesSingleton {
 	}
 
 	public static final CryptoPropertiesBean getCryptoPropertiesBeanInstance() throws FileNotFoundException {
-		if ((propertiesConfiguration == null) || (propertiesConfiguration.getFile() != null && fileModified != propertiesConfiguration.getFile().lastModified())) {
+		if ((propertiesConfiguration == null)
+				|| ((propertiesConfiguration.getFile() != null) && (fileModified != propertiesConfiguration.getFile().lastModified()))) {
 			final URL propertiesFilePath = getPropertiesFilePath();
 
 			try {
@@ -32,11 +33,11 @@ public class CryptoPropertiesSingleton {
 			}
 
 			propertiesConfiguration.setReloadingStrategy(new FileChangedReloadingStrategy());
-			
+
 			if (propertiesConfiguration.getFile() != null) {
 				fileModified = propertiesConfiguration.getFile().lastModified();
 			}
-			
+
 			cryptoPropertiesBean = CryptoPropertiesFactory.createCryptoPropertiesBeanFromPropertiesFile(propertiesConfiguration);
 			logger.info("Crpto properties loaded:\n" + cryptoPropertiesBean);
 		}
@@ -51,7 +52,8 @@ public class CryptoPropertiesSingleton {
 			propertiesFilePath = CryptoPropertiesSingleton.class.getResource(CRYPTO_CONFIGURATION_PROPERTIES_FILE);
 
 			if (propertiesFilePath == null) {
-				throw new FileNotFoundException("Config resource " + CRYPTO_CONFIGURATION_PROPERTIES_FILE + " was not found on the classpath.");
+				throw new FileNotFoundException("Config resource " + CRYPTO_CONFIGURATION_PROPERTIES_FILE
+						+ " was not found on the classpath.");
 			}
 		}
 

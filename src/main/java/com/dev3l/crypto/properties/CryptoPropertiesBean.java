@@ -86,7 +86,7 @@ public class CryptoPropertiesBean {
 	 */
 	@Override
 	public String toString() {
-		return "CryptoPropertiesBean [pbkdf2Algorithm=" + pbkdf2Algorithm + ", pbkdf2Iterations=" + pbkdf2Iterations + ", pbkdf2SaltByteSize=" + pbkdf2SaltByteSize
-				+ ", pbkdf2HashByteSize=" + pbkdf2HashByteSize + "]";
+		return "CryptoPropertiesBean [pbkdf2Algorithm=" + pbkdf2Algorithm + ", pbkdf2Iterations=" + pbkdf2Iterations
+				+ ", pbkdf2SaltByteSize=" + pbkdf2SaltByteSize + ", pbkdf2HashByteSize=" + pbkdf2HashByteSize + "]";
 	}
 }

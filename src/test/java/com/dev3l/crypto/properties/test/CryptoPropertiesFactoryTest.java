@@ -32,7 +32,8 @@ public class CryptoPropertiesFactoryTest {
 	public void createCryptoPropertiesBeanFromPropertiesFile() {
 		final PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration();
 		propertiesConfiguration.addProperty("test_property", "test_value");
-		CryptoPropertiesBean cryptoPropertiesBean = CryptoPropertiesFactory.createCryptoPropertiesBeanFromPropertiesFile(propertiesConfiguration);
+		CryptoPropertiesBean cryptoPropertiesBean = CryptoPropertiesFactory
+				.createCryptoPropertiesBeanFromPropertiesFile(propertiesConfiguration);
 
 		Assert.assertNotNull(cryptoPropertiesBean);
 		Assert.assertNull(cryptoPropertiesBean.getPbkdf2Algorithm());
