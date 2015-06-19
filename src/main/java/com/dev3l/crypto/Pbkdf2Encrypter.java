@@ -6,6 +6,8 @@ import java.security.spec.InvalidKeySpecException;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -16,10 +18,12 @@ import org.apache.logging.log4j.Logger;
 import com.dev3l.crypto.properties.CryptoPropertiesBean;
 import com.dev3l.crypto.properties.CryptoPropertiesSingleton;
 
+@ApplicationScoped
 public class Pbkdf2Encrypter {
 	private static final Logger logger = LogManager.getLogger();
 
-	private Pbkdf2Encrypter() {
+	@Inject
+	public Pbkdf2Encrypter() {
 	}
 
 	/**
@@ -28,7 +32,7 @@ public class Pbkdf2Encrypter {
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	public static String encrypt(final String password, final String salt) throws FileNotFoundException {
+	public String encrypt(final String password, final String salt) throws FileNotFoundException {
 		if (StringUtils.isEmpty(password) || StringUtils.isEmpty(salt)) {
 			return null;
 		}
@@ -44,7 +48,7 @@ public class Pbkdf2Encrypter {
 		return encryptedHash;
 	}
 
-	private static byte[] encrypt(final char[] password, final byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException,
+	private byte[] encrypt(final char[] password, final byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException,
 			FileNotFoundException {
 		final CryptoPropertiesBean cryptoPropertiesBean = CryptoPropertiesSingleton.getCryptoPropertiesBeanInstance();
 

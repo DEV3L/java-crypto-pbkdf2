@@ -12,37 +12,40 @@ public class Pbkdf2EncrypterTest {
 	private static final int TEST_COUNT_SIZE = 10;
 	private final String password = "super_secret";
 
+	private final RandomSaltGenerator randomSaltGenerator = new RandomSaltGenerator();
+	private final Pbkdf2Encrypter pbkdf2Encrypter = new Pbkdf2Encrypter();
+
 	@Test
 	public void encryptTestEqualHashes() throws FileNotFoundException {
-		final String salt = RandomSaltGenerator.createSalt();
+		final String salt = randomSaltGenerator.createSalt();
 
 		for (int i = 0; i < TEST_COUNT_SIZE; i++) {
-			Assert.assertEquals(Pbkdf2Encrypter.encrypt(password, salt), Pbkdf2Encrypter.encrypt(password, salt));
+			Assert.assertEquals(pbkdf2Encrypter.encrypt(password, salt), pbkdf2Encrypter.encrypt(password, salt));
 		}
 	}
 
 	@Test
 	public void encryptTestNonEqualHashes() throws FileNotFoundException {
 		for (int i = 0; i < TEST_COUNT_SIZE; i++) {
-			final String firstSalt = RandomSaltGenerator.createSalt();
-			final String secondSalt = RandomSaltGenerator.createSalt();
+			final String firstSalt = randomSaltGenerator.createSalt();
+			final String secondSalt = randomSaltGenerator.createSalt();
 
-			Assert.assertNotEquals(Pbkdf2Encrypter.encrypt(password, firstSalt), Pbkdf2Encrypter.encrypt(password, secondSalt));
+			Assert.assertNotEquals(pbkdf2Encrypter.encrypt(password, firstSalt), pbkdf2Encrypter.encrypt(password, secondSalt));
 		}
 	}
 
 	@Test
 	public void encryptTestNullSalt() throws FileNotFoundException {
-		Assert.assertNull(Pbkdf2Encrypter.encrypt(password, null));
+		Assert.assertNull(pbkdf2Encrypter.encrypt(password, null));
 	}
 
 	@Test
 	public void encryptTestNullPassword() throws FileNotFoundException {
-		Assert.assertNull(Pbkdf2Encrypter.encrypt(null, "salt"));
+		Assert.assertNull(pbkdf2Encrypter.encrypt(null, "salt"));
 	}
 
 	@Test
 	public void encryptTestNullPasswordNullSalt() throws FileNotFoundException {
-		Assert.assertNull(Pbkdf2Encrypter.encrypt(null, null));
+		Assert.assertNull(pbkdf2Encrypter.encrypt(null, null));
 	}
 }
