@@ -1,4 +1,4 @@
-# CryptoDev3l
+# java-crypto-pbkdf2
 Java PBKDF2 Encryption Utility - PBKDF2WithHmacSHA1
 
 *Java hashing implementation of pbkdf2 for secure storage of passwords.*
