@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DEV3L/java-crypto-pbkdf2.png)](https://travis-ci.org/DEV3L/java-crypto-pbkdf2)
+
 # java-crypto-pbkdf2
 Java PBKDF2 Encryption Utility - PBKDF2WithHmacSHA1
 
